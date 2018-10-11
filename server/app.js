@@ -14,12 +14,16 @@ module.exports.app = app;
 // Set what we are listening on.
 app.set('port', 3000);
 
-// Logging and parsing
+// Logging and parsing 
 app.use(morgan('dev'));
 app.use(parser.json());
 
+
+
 // Set up our routes
 app.use('/classes', router);
+
+// app.option -> this will make sure that all request and resposne will have headers 
 
 // Serve the client files
 app.use(express.static(__dirname + '/../client'));

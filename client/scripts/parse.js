@@ -1,6 +1,6 @@
 var Parse = {
 
-  server: `http://127.0.0.1:3000`,
+  server: `http://localhost:3000`,
 
   create: function(message, successCB, errorCB = null) {
 
@@ -20,7 +20,7 @@ var Parse = {
     $.ajax({
       url: Parse.server + '/classes/messages',
       type: 'GET',
-      // data: { order: '-createdAt' },
+      data: { order: '-createdAt' },
       contentType: 'application/json',
       success: successCB,
       error: errorCB || function(error) {
