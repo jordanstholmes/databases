@@ -22,12 +22,22 @@ var App = {
 
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
+      console.log(data);
 
       // Don't bother to update if we have no messages
-      if (!data.results || !data.results.length) { return; }
+      if (!data || !data.length) { 
+        callback();
+        return; 
+      }
+      
+      // var passedData = {
+      //   username: data.user_id,
+      //   roomname: data.room_id,
+      //   text: data.
+      // }
 
-      Rooms.update(data.results, RoomsView.render);
-      Messages.update(data.results, MessagesView.render);
+      Rooms.update(data, RoomsView.render);
+      Messages.update(data, MessagesView.render);
       
       callback();
     });

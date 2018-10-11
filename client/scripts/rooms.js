@@ -21,6 +21,7 @@ var Rooms = {
   },
 
   update: function(messages, callback = ()=>{}) {
+    console.log('hey, i updated! sortof');
     var length = Rooms._data.size;
 
     _.chain(messages)

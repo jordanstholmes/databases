@@ -9,11 +9,15 @@ var models = require('../models');
 module.exports = {
   messages: {
     get: function (req, res) { // a function which handles a get request for all messages
-      
-      // invoke function from model that queries the database and returns requested data
-      models.messages.get();
-      // res.send(data);
-      // res.end(data);
+      models.messages.get((err, data) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(data); 
+          res.send(data);
+          res.end();
+        }
+      });
     }, 
     post: function (req, res) {} // a function which handles posting a message to the database
   },
