@@ -20,7 +20,6 @@ module.exports = {
       });
     }, 
     post: function (req, res) {
-      console.log('THIS IS BODY:', req.body);
       
       models.messages.post(req, (err) => {
         
@@ -48,7 +47,19 @@ module.exports = {
         }
       });
     },
-    post: function (req, res) {}
+    post: function (req, res) {
+      
+      console.log('post', req.body.username);
+      
+      models.users.post(req, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('success');
+          res.end();
+        }
+      });
+    }
   }
 };
 
