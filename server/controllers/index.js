@@ -13,13 +13,26 @@ module.exports = {
         if (err) {
           console.log(err);
         } else {
-          console.log(data); 
+          // console.log(data); 
           res.send(data);
           res.end();
         }
       });
     }, 
-    post: function (req, res) {} // a function which handles posting a message to the database
+    post: function (req, res) {
+      console.log('THIS IS BODY:', req.body);
+      
+      models.messages.post(req, (err) => {
+        
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('success');
+          res.end();
+        }
+      // invoke a function on model that inserts the message into the sql table
+      });
+    } // a function which handles posting a message to the database
   },
 
   users: {
