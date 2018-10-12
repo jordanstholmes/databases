@@ -37,7 +37,17 @@ module.exports = {
 
   users: {
     // Ditto as above
-    get: function (req, res) {},
+    get: function (req, res) {
+      models.users.get((err, results) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(results);
+          res.send(results);
+          res.end();
+        }
+      });
+    },
     post: function (req, res) {}
   }
 };

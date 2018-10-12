@@ -6,7 +6,7 @@ USE chat;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
-  name VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -41,7 +41,7 @@ INSERT INTO messages (text, roomname, user_id) VALUES
 ('Hello world', 'lobby', 1),
 ('test2', 'hall', 2);
 
-INSERT INTO users (name, id) VALUES
+INSERT INTO users (username, id) VALUES
 ('peter', 1),
 ('hans', 2);
 
