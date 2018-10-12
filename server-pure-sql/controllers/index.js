@@ -14,6 +14,7 @@ module.exports = {
         if (err) {
           console.log(err);
         } else {
+          console.log('MESSAGES.GET DATA:', data); 
           res.send(data);
           res.end();
         }

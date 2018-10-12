@@ -1,10 +1,8 @@
 var db = require('../db/index.js');
-var Users = require('../../orm-resources/orm-example.js').Users;
 
 module.exports = {
   messages: {
     get: function (callback) {
-      // console.log('SEQUELIZE USERS:', typeof Users);
       var queryString = 
       `SELECT users.username, messages.roomname, messages.text, messages.id
       FROM users, messages
@@ -13,7 +11,7 @@ module.exports = {
         if (err) {
           callback(err, null);
         } else {
-          // console.log('MESSAGES QUERY:', results);
+          console.log('MESSAGES QUERY:', results);
           callback(null, results);
         }
       });
@@ -45,18 +43,15 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function (callback) {
-      Users.findAll().then(results => callback(null, results));
-        
-      
-      // var queryString = 'SELECT users.username FROM users';
-      // db.query(queryString, (err, results) => {
-      //   if (err) {
-      //     callback(err);
-      //   } else {
-      //     // console.log(results);
-      //     callback(null, results);
-      //   }
-      // });
+      var queryString = 'SELECT users.username FROM users';
+      db.query(queryString, (err, results) => {
+        if (err) {
+          callback(err);
+        } else {
+          // console.log(results);
+          callback(null, results);
+        }
+      });
     },
     post: function (req, callback) {
       console.log('NO USER IN DATABASE');
