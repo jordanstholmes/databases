@@ -4,11 +4,11 @@ CREATE DATABASE chat;
 
 USE chat;
 
--- CREATE TABLE users (
---   id INT NOT NULL AUTO_INCREMENT,
---   name VARCHAR(50) NOT NULL,
---   PRIMARY KEY (id)
--- );
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id)
+);
 
 -- INSERT INTO users (name) VALUES
 -- ('alex'),
@@ -27,8 +27,7 @@ USE chat;
 CREATE TABLE messages (
   id INT NOT NULL AUTO_INCREMENT,
   text VARCHAR(200) NOT NULL,
-  username VARCHAR(50) NOT NULL,
-  -- user_id INT,
+  user_id INT NOT NULL,
   -- room_id INT,
   roomname VARCHAR(50) NOT NULL,
   -- INDEX (user_id),
@@ -38,9 +37,13 @@ CREATE TABLE messages (
   -- FOREIGN KEY (room_id) REFERENCES rooms(id)
 );
 
-INSERT INTO messages (text, username, roomname) VALUES
-('Hello world', 'peter', 'lobby'),
-('test2', 'hans', 'hall');
+INSERT INTO messages (text, roomname, user_id) VALUES
+('Hello world', 'lobby', 1),
+('test2', 'hall', 2);
+
+INSERT INTO users (name, id) VALUES
+('peter', 1),
+('hans', 2);
 
 --   -- FOREIGN KEY (room_id) REFERENCES rooms(id)
 
