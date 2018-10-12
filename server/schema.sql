@@ -37,13 +37,13 @@ CREATE TABLE messages (
   -- FOREIGN KEY (room_id) REFERENCES rooms(id)
 );
 
-INSERT INTO messages (text, roomname, user_id) VALUES
-('Hello world', 'lobby', 1),
-('test2', 'hall', 2);
+-- INSERT INTO messages (text, roomname, user_id) VALUES
+-- ('Hello world', 'lobby', 1),
+-- ('test2', 'hall', 2);
 
-INSERT INTO users (username, id) VALUES
-('peter', 1),
-('hans', 2);
+-- INSERT INTO users (username, id) VALUES
+-- ('peter', 1),
+-- ('hans', 2);
 
 --   -- FOREIGN KEY (room_id) REFERENCES rooms(id)
 

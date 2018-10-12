@@ -9,11 +9,12 @@ var models = require('../models');
 module.exports = {
   messages: {
     get: function (req, res) { // a function which handles a get request for all messages
+      // console.log('HIT THE CONTROLLER:', req.body);
       models.messages.get((err, data) => {
         if (err) {
           console.log(err);
         } else {
-          // console.log(data); 
+          console.log('MESSAGES.GET DATA:', data); 
           res.send(data);
           res.end();
         }

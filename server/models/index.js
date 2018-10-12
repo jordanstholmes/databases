@@ -11,6 +11,7 @@ module.exports = {
         if (err) {
           callback(err, null);
         } else {
+          console.log('MESSAGES QUERY:', results);
           callback(null, results);
         }
       });
